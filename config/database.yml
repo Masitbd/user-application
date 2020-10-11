@@ -1,0 +1,27 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: user_application_development
+  username: postgres
+  password: "omnipod"
+
+  
+
+
+test:
+  <<: *default
+  database: user_application_test
+  username: postgres
+  password: "omnipod"
+
+
+production:
+  <<: *default
+  database: user_application_production
+  username: user_application
+  password: <%= ENV['USER_APPLICATION_DATABASE_PASSWORD'] %>
